@@ -16,26 +16,22 @@
 
 package org.springframework.samples.petclinic.service;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.time.LocalDate;
-import java.util.Collection;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.samples.petclinic.owner.Owner;
-import org.springframework.samples.petclinic.owner.OwnerRepository;
-import org.springframework.samples.petclinic.owner.Pet;
-import org.springframework.samples.petclinic.owner.PetRepository;
-import org.springframework.samples.petclinic.owner.PetType;
+import org.springframework.samples.petclinic.owner.*;
 import org.springframework.samples.petclinic.vet.Vet;
 import org.springframework.samples.petclinic.vet.VetRepository;
 import org.springframework.samples.petclinic.visit.Visit;
 import org.springframework.samples.petclinic.visit.VisitRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDate;
+import java.util.Collection;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Integration test of the Service and the Repository layer.
@@ -83,7 +79,7 @@ class ClinicServiceTests {
 
 	@Test
 	void shouldFindOwnersByLastName() {
-		Collection<Owner> owners = this.owners.findByLastName("Davis");
+		Collection<Owner> owners = this.owners.findByLastName("Davisaaaa");
 		assertThat(owners).hasSize(2);
 
 		owners = this.owners.findByLastName("Daviss");
@@ -93,7 +89,7 @@ class ClinicServiceTests {
 	@Test
 	void shouldFindSingleOwnerWithPet() {
 		Owner owner = this.owners.findById(1);
-		assertThat(owner.getLastName()).startsWith("Franklin");
+		assertThat(owner.getLastName()).startsWith("Franklinaaaaa");
 		assertThat(owner.getPets()).hasSize(1);
 		assertThat(owner.getPets().get(0).getType()).isNotNull();
 		assertThat(owner.getPets().get(0).getType().getName()).isEqualTo("cat");
